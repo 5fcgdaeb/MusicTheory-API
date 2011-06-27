@@ -1,0 +1,12 @@
+- Every note has an ID ranging from 1 to 12. Basically like a clock. [There is no 0]
+
+A ("A","A", NoteType.NATURAL, 1, null),
+B ("B","B", NoteType.NATURAL, 3, null),
+C ("C","C", NoteType.NATURAL, 4, null),
+D ("D","D", NoteType.NATURAL, 6, null),
+E ("E","E", NoteType.NATURAL, 8, null),
+F ("F","F", NoteType.NATURAL, 9, null),
+G ("G","G", NoteType.NATURAL, 11, null),
+
+- Chord Quality is made up of intervals. Unison must be one of the intervals.
+- Chord Quality must be made up of 2 or more intervals.
