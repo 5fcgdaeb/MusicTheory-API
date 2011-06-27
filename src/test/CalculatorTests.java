@@ -42,12 +42,12 @@ public class CalculatorTests {
 	}
 	
 	@Before
-	public void setUp(){
+	public void setUp() {
 		intervalCalculator = new IntervalCalculator();
 	}
 	
 	@After
-	public void tearDown(){
+	public void tearDown() {
 		intervalCalculator = null;
 	}
 
