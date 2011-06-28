@@ -33,7 +33,7 @@ public class Chord {
 	
 	public void addInversion(Inversion inversion) {
 		
-		if(!new InversionValidator(this, inversion).canInversionBeApplied()) {
+		if(!new InversionValidator(this.chordQuality, inversion).canInversionBeApplied()) {
 			throw new InvalidInversionException("Cannot apply the inverison to the chord");
 		}
 		

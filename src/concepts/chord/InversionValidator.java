@@ -3,25 +3,24 @@ package concepts.chord;
 public class InversionValidator {
 
 	private final Inversion inversionToBeAdded;
-	private final Chord chord;
+	private final ChordQuality chordQuality;
 	
-	public InversionValidator(Chord chord, Inversion inversion) {
+	public InversionValidator(ChordQuality chordQuality, Inversion inversion) {
 		this.inversionToBeAdded = inversion;
-		this.chord = chord;
+		this.chordQuality = chordQuality;
 	}
 	
 	public boolean canInversionBeApplied() {
 		
 		switch(inversionToBeAdded) {
-			
-		case NONE:
-			return true;
-		case FIRST:
-			return chord.getChordQuality().includesThird();
-		case SECOND:
-			return chord.getChordQuality().includesFifth();
-		case THIRD:
-			return chord.getChordQuality().includesSeventh();
+			case NONE:
+				return true;
+			case FIRST:
+				return chordQuality.includesThird();
+			case SECOND:
+				return chordQuality.includesFifth();
+			case THIRD:
+				return chordQuality.includesSeventh();
 		}
 
 		return false;

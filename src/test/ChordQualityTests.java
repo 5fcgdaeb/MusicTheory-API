@@ -73,4 +73,18 @@ public class ChordQualityTests {
 		assertTrue(ChordQualityFactory.MAJOR().containsInterval(Interval.M3));
 		
 	}
+	
+	@Test
+	public void testInclusionOfThirdInBasicChordQualities() {
+		assertTrue(ChordQualityFactory.MAJOR().includesThird());
+		assertTrue(ChordQualityFactory.MINOR().includesThird());
+		assertTrue(ChordQualityFactory.DIMINISHED().includesThird());
+	}
+	
+	@Test
+	public void testInclusionOfFifthsInBasicChordQualities() {
+		assertTrue(ChordQualityFactory.MAJOR().includesFifth());
+		assertTrue(ChordQualityFactory.MINOR().includesFifth());
+		assertTrue(ChordQualityFactory.DIMINISHED().includesFifth());
+	}
 }

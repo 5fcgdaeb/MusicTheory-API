@@ -9,7 +9,7 @@ import concepts.Interval;
 import calculators.IntervalCalculator;
 import core.Note;
 
-public class CalculatorTests {
+public class IntervalCalculatorTests {
 	
 	private IntervalCalculator intervalCalculator;
 	

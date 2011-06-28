@@ -21,13 +21,25 @@ public class ChordCalculator {
 			notesInChord.add(calculator.addIntervalTo(chord.getBaseNote(), interval));
 		}
 		
+		return notesInChord;
+	}
+
+	public List<Note> getNotesInChordRespectingInversion(Chord chord) {
+		
+		List<Note> notesInChord = this.getNotesInChord(chord);
 		orderNotesUsingInversion(notesInChord, chord.getInversion());
 		
 		return notesInChord;
 	}
-
-	public void orderNotesUsingInversion(List<Note> notes, Inversion inversion) {
+	
+	private void orderNotesUsingInversion(List<Note> notes, Inversion inversion) {
+		
 		if(inversion == Inversion.NONE) return;
+		
+		else {
+			Note bassNote = notes.remove(inversion.getBottomNodeOrder());
+			notes.add(0,bassNote);
+		}
 		
 	}
 }
