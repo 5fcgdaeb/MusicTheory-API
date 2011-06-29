@@ -15,4 +15,8 @@ public class ChordQualityFactory {
 	public static ChordQuality DIMINISHED() {
 		return new ChordQuality(Interval.UNISON, Interval.m3, Interval.P5Flat);
 	}
+	
+	public static ChordQuality DOMINANT() {
+		return new ChordQuality(Interval.UNISON, Interval.M3, Interval.P5, Interval.m7);
+	}
 }
