@@ -10,3 +10,6 @@ G ("G","G", NoteType.NATURAL, 11, null),
 
 - Chord Quality is made up of intervals. Unison must be one of the intervals.
 - Chord Quality must be made up of 2 or more intervals.
+
+- Scale is made up of intervals. UNISON and OCTAVE should be two of the intervals. All intervals
+should be less or equal to OCTAVE.
