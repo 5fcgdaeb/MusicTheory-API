@@ -28,6 +28,7 @@ HANGING
 - When creating a chord quality, how would you handle the unison? Should UNISON be in every chord quality
 by default, or should it be specified explicitly?
 - Chord has a chord quality sounds good. Does scale has a scale formula?
+- Raise/Drop or Augment/Diminish?
 
 ANSWERED
 - What is the musical term for distinguishing A from A# or Ab? (accidental?) [Natural vs. Accidental]

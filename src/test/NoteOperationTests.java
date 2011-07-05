@@ -79,16 +79,19 @@ public class NoteOperationTests {
 	@Test
 	public void reduceLocationTests() {		
 
-		int reducedLocation = NoteOperations.reduceLocationToWithinRange(12);
+		int reducedLocation = NoteOperations.bringLocationToWithinRange(12);
 		assertEquals("12 should be reduced to 12", reducedLocation, 12);
 		
-		reducedLocation = NoteOperations.reduceLocationToWithinRange(23);
+		reducedLocation = NoteOperations.bringLocationToWithinRange(23);
 		assertEquals("23 should be reduced to 11", reducedLocation, 11);
 		
-		reducedLocation = NoteOperations.reduceLocationToWithinRange(0);
-		assertEquals("0 should be reduced to 0", reducedLocation, 0);
+		reducedLocation = NoteOperations.bringLocationToWithinRange(0);
+		assertEquals("0 should be reduced to 12", reducedLocation, 12);
 		
-		reducedLocation = NoteOperations.reduceLocationToWithinRange(25);
+		reducedLocation = NoteOperations.bringLocationToWithinRange(-2);
+		assertEquals("-2 should be reduced to 10", reducedLocation, 10);
+		
+		reducedLocation = NoteOperations.bringLocationToWithinRange(25);
 		assertEquals("25 should be reduced to 1", reducedLocation, 1);
 
 	}

@@ -7,10 +7,20 @@ import java.util.List;
 
 public class NoteOperations {
 	
-	public static int reduceLocationToWithinRange(int location) {
+	public static int bringLocationToWithinRange(int location) {
 		
-		while(location > 12) {
-			location = location % (Note.MAXIMUM_NOTE_ID + 1) + 1;
+		if(location > 0 && location < 13); // within range, take no action
+		
+		else if(location > 12) {
+			while(location > 12) {
+				location -= (Note.MAXIMUM_NOTE_ID);
+			}
+		}
+		
+		else {
+			while(location < 1) {
+				location += (Note.MAXIMUM_NOTE_ID);
+			}
 		}
 		
 		return location;
@@ -48,13 +58,12 @@ public class NoteOperations {
 	
 	public static Note findNoteWithIDLinkedToTheNaturalNote(int location, Note naturalNote) {
 		
-		location = NoteOperations.reduceLocationToWithinRange(location);
+		location = NoteOperations.bringLocationToWithinRange(location);
 		
 		List<Note> allNotesWithNewNoteID = NoteOperations.findNotesWithID(location);
 		
 		for(Note noteWithRightNoteID: allNotesWithNewNoteID) {
-			if(noteWithRightNoteID.linkedNaturalNote() == naturalNote ||
-					noteWithRightNoteID == naturalNote)
+			if(noteWithRightNoteID.linkedNaturalNote() == naturalNote)
 				return noteWithRightNoteID;		
 		}
 		return null;

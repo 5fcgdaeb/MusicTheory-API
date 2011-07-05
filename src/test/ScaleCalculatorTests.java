@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import calculators.ScaleCalculator;
+import concepts.Interval;
 import concepts.scale.Scale;
 import concepts.scale.ScaleFormula;
 import concepts.scale.ScaleFormulaFactory;
@@ -50,6 +51,20 @@ public class ScaleCalculatorTests {
 		assertEquals(notesOfCMajorScale.get(7), Note.C);
 		
 		assertEquals(notesOfCMajorScale.size(), 8);
+	}
+	
+	@Test
+	public void testGettingAllIntervalsInMajorScale() {
+		
+		ScaleFormula formula = ScaleFormulaFactory.MAJOR_SCALE();
+		Scale cMajorScale = new Scale(formula, Note.C);
+		
+		List<Interval> intervalsInCMajorScale = calculator.getAllPossibleIntervalsInScale(cMajorScale);
+		
+		assertNotNull(intervalsInCMajorScale);
+		
+		// There are other intervals in this scale!! sevenths and stuff!
+		// Need to think differently to calculate intervals
 	}
 	
 }

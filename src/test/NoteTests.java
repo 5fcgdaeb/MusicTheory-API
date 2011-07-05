@@ -15,4 +15,19 @@ public class NoteTests {
 		assertEquals("D has the wrong ID", Note.D.id(), 6);
 		
 	}
+	
+	@Test
+	public void raiseCToCSharp() {
+		assertEquals(Note.C.raise(), Note.CSharp);
+	}
+	
+	@Test
+	public void lowerCToCFlat() {
+		assertEquals(Note.C.lower(), Note.Cflat);
+	}
+	
+	@Test
+	public void lowerCFlatToCFlatFlat() {
+		assertEquals(Note.Cflat.lower(), Note.Cflatflat);
+	}
 }

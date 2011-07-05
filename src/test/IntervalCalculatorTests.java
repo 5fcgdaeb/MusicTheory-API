@@ -45,8 +45,8 @@ public class IntervalCalculatorTests {
 	}
 	
 	@Test
-	public void testRetrievingIntervalsTenNotesAboveUnison() {
-		List<Interval> intervalsTenNotesAbove = intervalCalculator.getIntervalsWithDistanceInNotesFromUnison(10);
+	public void testRetrievingIntervalsThatAddTenNotes() {
+		List<Interval> intervalsTenNotesAbove = intervalCalculator.getIntervalsWithDistanceInNotes(10);
 		
 		assertEquals(intervalsTenNotesAbove.size(), 2);
 		
@@ -55,13 +55,27 @@ public class IntervalCalculatorTests {
 	}
 	
 	@Test
-	public void testRetrievingIntervalsSixHalfStepsAboveUnison() {
-		List<Interval> intervalsSixHalfStepsAbove = intervalCalculator.getIntervalsWithDistanceInHalfStepsFromUnison(6);
+	public void testRetrievingIntervalsThatAddSixHalfSteps() {
+		List<Interval> intervalsSixHalfStepsAbove = intervalCalculator.getIntervalsWithDistanceInHalfSteps(6);
 		
 		assertEquals(intervalsSixHalfStepsAbove.size(), 2);
 		
-		assertEquals(intervalsSixHalfStepsAbove.get(0).distanceInNotes(), 4);
-		assertEquals(intervalsSixHalfStepsAbove.get(1).distanceInNotes(), 5);
+		assertEquals(intervalsSixHalfStepsAbove.get(0).distanceInNotes(), 3); // Raised Fourth
+		assertEquals(intervalsSixHalfStepsAbove.get(1).distanceInNotes(), 4); // Diminished Fifth
+	}
+	
+	@Test
+	public void addMinorSecondToOctaveToGetMinorNinth() {
+		Interval result = intervalCalculator.addIntervals(Interval.OCTAVE, Interval.m2);
+		
+		assertEquals(Interval.m9, result);
+	}
+	
+	@Test
+	public void addPerfectFifthToMajorSixthToGetNoResult() {
+		Interval result = intervalCalculator.addIntervals(Interval.P5, Interval.M6);
+		
+		assertNull(result);
 	}
 	
 	@Before

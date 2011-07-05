@@ -24,4 +24,21 @@ public class ScaleCalculator {
 		
 		return notesInTheScale;
 	}
+	
+	public List<Interval> getAllPossibleIntervalsInScale(Scale scale) {
+		
+		List<Interval> allPossibleIntervals = new ArrayList<Interval>();
+		allPossibleIntervals.addAll(scale.getFormula().getIntervalsInTheFormula());
+		
+		IntervalCalculator calculator = new IntervalCalculator();
+		
+		for(Interval interval: scale.getFormula().getIntervalsInTheFormula()) {
+			Interval calculatedInterval = calculator.addIntervals(Interval.OCTAVE, interval);
+			if(calculatedInterval != null) {
+				allPossibleIntervals.add(calculatedInterval);
+			}
+		}
+		
+		return allPossibleIntervals;
+	}
 }
