@@ -1,6 +1,9 @@
 package test;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +42,26 @@ public class IntervalCalculatorTests {
 		
 		Note nextNote = intervalCalculator.addIntervalTo(Note.DSharp, Interval.M3);
 		assertEquals("Major third of D# should be F##.", nextNote, Note.FSharpSharp);
+	}
+	
+	@Test
+	public void testRetrievingIntervalsTenNotesAboveUnison() {
+		List<Interval> intervalsTenNotesAbove = intervalCalculator.getIntervalsWithDistanceInNotesFromUnison(10);
+		
+		assertEquals(intervalsTenNotesAbove.size(), 2);
+		
+		assertEquals(intervalsTenNotesAbove.get(0).distanceInHalfSteps(), 16);
+		assertEquals(intervalsTenNotesAbove.get(1).distanceInHalfSteps(), 17);
+	}
+	
+	@Test
+	public void testRetrievingIntervalsSixHalfStepsAboveUnison() {
+		List<Interval> intervalsSixHalfStepsAbove = intervalCalculator.getIntervalsWithDistanceInHalfStepsFromUnison(6);
+		
+		assertEquals(intervalsSixHalfStepsAbove.size(), 2);
+		
+		assertEquals(intervalsSixHalfStepsAbove.get(0).distanceInNotes(), 4);
+		assertEquals(intervalsSixHalfStepsAbove.get(1).distanceInNotes(), 5);
 	}
 	
 	@Before

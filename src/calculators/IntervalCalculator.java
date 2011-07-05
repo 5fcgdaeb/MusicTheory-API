@@ -1,5 +1,8 @@
 package calculators;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import concepts.Interval;
 
 import core.Note;
@@ -33,6 +36,48 @@ public class IntervalCalculator {
 		else closestCurrentNoAccidentalNote = note.linkedNaturalNote();
 		
 		return NoteOperations.addNotesToNaturalNote(closestCurrentNoAccidentalNote, interval.distanceInNotes());
+	}
+	
+	public Interval addIntervals(Interval interval1, Interval interval2) {
+		
+		return null;
+	}
+	
+	public List<Interval> getIntervalsWithDistanceInNotesFromUnison(int distanceInNotesFromUnison) {
+		List<Interval> intervals = new ArrayList<Interval>();
+		
+		for(Interval interval: Interval.values()) {
+			if(interval.distanceInNotes() == distanceInNotesFromUnison) {
+				intervals.add(interval);
+			}
+		}
+		
+		return intervals;
+	}
+	
+	public List<Interval> getIntervalsWithDistanceInHalfStepsFromUnison(int distanceInHalfStepsFromUnison) {
+		List<Interval> intervals = new ArrayList<Interval>();
+		
+		for(Interval interval: Interval.values()) {
+			if(interval.distanceInHalfSteps() == distanceInHalfStepsFromUnison) {
+				intervals.add(interval);
+			}
+		}
+		
+		return intervals;
+	}
+	
+	public Interval getIntervalWithDistanceInHalfStepAndDistanceInNotesFromUnison(int distanceInHalfSteps,
+																				  int distanceInNotes) {
+		
+		for(Interval interval: Interval.values()) {
+			if(interval.distanceInHalfSteps() == distanceInHalfSteps &&
+					interval.distanceInNotes() == distanceInNotes) {
+				return interval;
+			}
+		}
+		
+		return null;
 	}
 	
 }

@@ -67,6 +67,7 @@ public enum Note implements Comparable<Note> {
 	public String musicalNotationDescription() { return this.musicalNotation; }
 	public int id() { return this.id; }
 	public NoteType noteType() { return this.noteType; }
+	public boolean isNatural() { return this.noteType == NoteType.NATURAL; }
 	public Note linkedNaturalNote() { return this.linkedNaturalNote; }
 	
 }
