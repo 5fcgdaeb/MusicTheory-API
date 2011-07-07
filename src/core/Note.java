@@ -82,5 +82,4 @@ public enum Note implements Comparable<Note> {
 	public Note lower() {
 		return NoteOperations.findNoteWithIDLinkedToTheNaturalNote(this.id - 1, this.linkedNaturalNote());
 	}
-	
 }

@@ -1,0 +1,2 @@
+- Note enum cannot seem to support the octave concept, need to change it into a class
+- Still working on finding the intervals of a scale; need to add intervals such as major 10th
