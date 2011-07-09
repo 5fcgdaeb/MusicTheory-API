@@ -1,7 +1,6 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,12 +27,12 @@ public class NoteOperations {
 	
 	public static List<Note> getAllNaturalNotes() {
 		
-		List<Note> allNotes = Arrays.asList(Note.values());
+		List<Note> allNotes = Note.getAllNotesInDefaultOctave();
 		
 		List<Note> resultingNotes = new ArrayList<Note>();
 		
 		for(Note note: allNotes) {
-			if(note.noteType() == NoteType.NATURAL) {
+			if(note.isNatural()) {
 				resultingNotes.add(note);
 			}
 		}
@@ -43,7 +42,7 @@ public class NoteOperations {
 
 	public static List<Note> findNotesWithID(int id) {
 		
-		List<Note> allNotes = Arrays.asList(Note.values());
+		List<Note> allNotes = Note.getAllNotesInDefaultOctave();
 		
 		List<Note> resultingNotes = new ArrayList<Note>();
 		

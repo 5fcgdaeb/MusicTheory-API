@@ -1,4 +1,8 @@
 - Every note has an ID ranging from 1 to 12. Basically like a clock. [There is no 0]
+- Note also has an octave; the notes on different octaves (e.g. A on octave 3 and another A
+on octave 4) are considered to be different notes.
+- Human ear can only hear frequencies from 20Hz to 20KHz. Accordingly, 10 octaves are
+possible to hear; 1 being the lowest and 10 being the highest.
 
 A ("A","A", NoteType.NATURAL, 1, null),
 B ("B","B", NoteType.NATURAL, 3, null),
@@ -11,5 +15,5 @@ G ("G","G", NoteType.NATURAL, 11, null),
 - Chord Quality is made up of intervals. Unison must be one of the intervals.
 - Chord Quality must be made up of 2 or more intervals.
 
-- Scale is made up of intervals. UNISON and OCTAVE should be two of the intervals. All intervals
-should be less or equal to OCTAVE.
+- Scale formula is made up of intervals. UNISON and OCTAVE should be two of the intervals. All intervals
+in the formula should be less or equal to OCTAVE (during construction of the formula).

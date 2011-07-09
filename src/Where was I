@@ -1,2 +1,4 @@
-- Note enum cannot seem to support the octave concept, need to change it into a class
+- The note and the note with the octave concept still not clear
+	* Try to add the 'absolute location' concept to note. A in second octave is 13.
+	
 - Still working on finding the intervals of a scale; need to add intervals such as major 10th
