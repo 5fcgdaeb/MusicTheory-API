@@ -54,15 +54,16 @@ public class Note implements Comparable<Note> {
 	public static List<Note> getAllNotesInDefaultOctave() {
 		
 		if(allNotesWithinDefaultOctave.size() == 0) {
-			placeNotesInList();
+			insertNotesInList();
 		}
 		
 		return allNotesWithinDefaultOctave;
 	}
 	
-	private static void placeNotesInList() {
+	private static void insertNotesInList() {
 		
-		Note[] notes = {A,B,C,D,E,F,G,Aflatflat,Aflat,ASharp,ASharpSharp,
+		Note[] notes = {A,B,C,D,E,F,G,
+						Aflatflat,Aflat,ASharp,ASharpSharp,
 						Bflatflat,Bflat,BSharp,BSharpSharp,
 						Cflatflat,Cflat,CSharp,CSharpSharp,
 						Dflatflat,Dflat,DSharp,DSharpSharp,
@@ -112,21 +113,37 @@ public class Note implements Comparable<Note> {
 	public boolean isNatural() { return this.noteType == NoteType.NATURAL; }
 	
 	public Note setOctave(Octave newOctave) {
+		
+		if(this.octave() == newOctave) return this;
+		
 		return new Note(this.musicalNotation, this.englishDescription, this.noteType, this.id,
 						this.linkedNaturalNote, newOctave);
 	}
-	public Note raise() {
-		// TODO: Introduce octave
-		return NoteOperations.findNoteWithIDLinkedToTheNaturalNote(this.id + 1, this.linkedNaturalNote());
-	}
-	
-	public Note lower() {
-		// TODO: Introduce octave
-		return NoteOperations.findNoteWithIDLinkedToTheNaturalNote(this.id - 1, this.linkedNaturalNote());
+
+	public boolean equals(Object otherObject) {
+		if(!(otherObject instanceof Note)) return false;
+		
+		Note otherNote = (Note) otherObject;
+		
+		return this.id() == otherNote.id() && this.noteType() == otherNote.noteType() &&
+				this.octave() == otherNote.octave() && 
+				this.linkedNaturalNote().id() == otherNote.linkedNaturalNote().id();
 	}
 
-	public int compareTo(Note arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Note otherNote) {
+		
+		if(this.equals(otherNote)) { return 0; }
+		
+		else if(NoteOperationsWithOctave.getAbsoluteLocation(this) > 
+						NoteOperationsWithOctave.getAbsoluteLocation(otherNote)) {
+			return 1;
+		}
+		else {
+			return -1;
+		}
+	}
+	
+	public String toString() {
+		return this.englishDescription + " in octave:" + Integer.toString(this.octave().count());
 	}
 }

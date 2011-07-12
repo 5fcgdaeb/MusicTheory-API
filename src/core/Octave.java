@@ -20,7 +20,7 @@ public enum Octave {
 		this.octaveCount = count;
 	}
 	
-	public int getCount() {
+	public int count() {
 		return this.octaveCount;
 	}
 

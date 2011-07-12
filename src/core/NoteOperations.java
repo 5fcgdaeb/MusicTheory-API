@@ -83,4 +83,12 @@ public class NoteOperations {
 		return allNaturalNotes.get(locationInModNumberOfNotes);
 		
 	}
+	
+	public static Note raiseNote(Note note) {
+		return NoteOperations.findNoteWithIDLinkedToTheNaturalNote(note.id() + 1, note.linkedNaturalNote());
+	}
+	
+	public static Note lowerNote(Note note) {
+		return NoteOperations.findNoteWithIDLinkedToTheNaturalNote(note.id() - 1, note.linkedNaturalNote());
+	}
 }

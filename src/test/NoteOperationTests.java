@@ -113,5 +113,20 @@ public class NoteOperationTests {
 		Note resultingNote = NoteOperations.findNoteWithIDLinkedToTheNaturalNote(2, Note.G);
 		assertEquals("Note with ID 2 and no accidental note G should be null", resultingNote, null);
 	}
+	
+	@Test
+	public void raiseCToCSharp() {
+		assertEquals(NoteOperations.raiseNote(Note.C), Note.CSharp);
+	}
+	
+	@Test
+	public void lowerCToCFlat() {
+		assertEquals(NoteOperations.lowerNote(Note.C), Note.Cflat);
+	}
+	
+	@Test
+	public void lowerCFlatToCFlatFlat() {
+		assertEquals(NoteOperations.lowerNote(Note.Cflat), Note.Cflatflat);
+	}
 
 }
