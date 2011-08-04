@@ -70,7 +70,7 @@ public class NoteOperations {
 	
 	public static Note addNotesToNaturalNote(Note naturalNote, int distanceInNotes) {
 		
-		if(naturalNote.noteType() != NoteType.NATURAL)
+		if(naturalNote.noteType() != PitchType.NATURAL)
 			throw new IllegalArgumentException("Only natural notes can be provided");
 		
 		List<Note> allNaturalNotes = NoteOperations.getAllNaturalNotes();

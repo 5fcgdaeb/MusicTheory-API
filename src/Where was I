@@ -1,4 +1,5 @@
-- The note and the note with the octave concept still not clear
-	* Try to add the 'absolute location' concept to note. A in second octave is 13.
+- Decision to use the MIDI mapping to create notes and pitches.
+	* Look at the screenshot for the mapping.
+	* Now needs to be implemented.
 	
 - Still working on finding the intervals of a scale; need to add intervals such as major 10th

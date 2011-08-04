@@ -1,6 +1,6 @@
 package core;
 
-public enum NoteType {
+public enum PitchType {
 
 	NATURAL, ACCIDENTAL;
 }
