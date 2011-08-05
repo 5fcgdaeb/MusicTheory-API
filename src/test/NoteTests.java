@@ -16,7 +16,7 @@ public class NoteTests {
 	public void createNoteAndRetrieveFields() {
 		
 		assertEquals("A sharp's musical notation is wrong",
-					Note.ASharp.musicalNotationDescription(),"A#");
+					Note.ASharp.musicalNotation(),"A#");
 		
 		assertEquals("D has the wrong ID", Note.D.id(), 6);
 		

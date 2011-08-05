@@ -1,5 +1,4 @@
 - Decision to use the MIDI mapping to create notes and pitches.
-	* Look at the screenshot for the mapping.
-	* Now needs to be implemented.
+	* Implementing the Note constructor, thinking about comparison and equality
 	
 - Still working on finding the intervals of a scale; need to add intervals such as major 10th

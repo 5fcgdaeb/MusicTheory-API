@@ -27,15 +27,15 @@ ANSWERED
 Music
 ==================
 HANGING
-- When creating a chord quality, how would you handle the unison? Should UNISON be in every chord quality
-by default, or should it be specified explicitly?
-- Chord has a chord quality sounds good. Does scale has a scale formula?
 - Raise/Drop or Augment/Diminish?
-- Notes in general and a specific note with its octave! How to distinguish? Note vs. absolute note?
-- How many octaves are there? Let's say that the human ear can hear 10, which one is the
-first one on the guitar?
 
 ANSWERED
+- Chord has a chord quality sounds good. Does scale has a scale formula? [OK]
+- Notes in general and a specific note with its octave! How to distinguish? Note vs. absolute note? [MIDI Notation]
+- How many octaves are there? Let's say that the human ear can hear 10, which one is the
+first one on the guitar? [Use MIDI notation]
+- When creating a chord quality, how would you handle the unison? Should UNISON be in every chord quality
+by default, or should it be specified explicitly? [Don't put UNISON in chord quality]
 - What is the musical term for distinguishing A from A# or Ab? (accidental?) [Natural vs. Accidental]
 - Which is a better approach to create scales?
 i) Go relative to major scale (1,2b,3,4#,etc...)

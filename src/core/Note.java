@@ -2,48 +2,60 @@ package core;
 
 public class Note implements Comparable<Note> {
 
-	
-	private final Pitch pitch;
+	private final PitchClass pitchClass;
 	private final Octave octave;
+	private final int midiCode;
 	
-	public Note(Pitch pitch, Octave octave) {
-		this.pitch = pitch;
-		this.octave = octave;
+	public Note(String note) {
+		this(note, Octave.DEFAULT);
+	}
+	public Note(String note, Octave octave) {
+		this(findPitchClass(note), octave);
 	}
 	
+	private static PitchClass findPitchClass(String note) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	private Note(PitchClass pitchClass, Octave octave) {
+		this.pitchClass = pitchClass;
+		this.octave = octave;
+		this.midiCode = calculateMidiCode();
+	}
+	
+	private int calculateMidiCode() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	public Octave octave() {return this.octave;}
-	public Pitch pitch() {return this.pitch;}
+	public String note() {return this.pitchClass.musicalNotation();}
+	public int getMidiCode() {return this.midiCode;}
 	
 	public Note setOctave(Octave newOctave) {
 		
 		if(this.octave() == newOctave) return this;
 		
-		return new Note(this.pitch, newOctave);
+		return new Note(this.pitchClass, newOctave);
 	}
 
+	// Everything should be equal
 	public boolean equals(Object otherObject) {
 		
 		if(!(otherObject instanceof Note)) return false;
 		
 		Note otherNote = (Note) otherObject;
 		
-		return this.pitch.equals(otherNote.pitch()) && this.octave() == otherNote.octave();
+		return this.note().equals(otherNote.note()) && this.octave() == otherNote.octave();
 	}
 
+	// Comparison only on MIDI codes
 	public int compareTo(Note otherNote) {
-		
-		if(this.equals(otherNote)) { return 0; }
-		
-		else if(NoteOperationsWithOctave.getAbsoluteLocation(this) > 
-						NoteOperationsWithOctave.getAbsoluteLocation(otherNote)) {
-			return 1;
-		}
-		else {
-			return -1;
-		}
+		return new Integer(this.midiCode).compareTo(new Integer(otherNote.getMidiCode()));
 	}
+
 	
 	public String toString() {
-		return this.pitch.englishDescription + " in octave:" + Integer.toString(this.octave().count());
+		return this.pitchClass.englishDescription + " in octave:" + Integer.toString(this.octave().count());
 	}
 }

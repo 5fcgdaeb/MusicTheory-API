@@ -36,7 +36,7 @@ public class NoteOperationTests {
 		List<Note> noAccidentalNotes = NoteOperations.getAllNaturalNotes();
 		
 		for(Note note: noAccidentalNotes){ 
-			assertTrue("This note should be A,B,C,D,E,F or G", note.noteType() == PitchType.NATURAL);
+			assertTrue("This note should be A,B,C,D,E,F or G", note.pitchType() == PitchType.NATURAL);
 		}	
 	}
 	
